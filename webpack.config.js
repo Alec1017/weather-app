@@ -1,17 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const bundlePath = path.resolve(__dirname, 'dist/');
-
 
 module.exports = {
-  entry: './src/index.js', // Where the application starts
+  entry: ['babel-polyfill', './src/index.js'], // Where the application starts
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // Transform ES6 and JSX files to javascript
+        test: /\.jsx?$/, // Transform ES6 and JSX files to javascript
         loader: 'babel-loader',
-        options: { presets: ['env'] },
+        options: { presets: ['env', 'react'] },
         exclude: /node_modules/,
       },
       {
@@ -22,7 +20,7 @@ module.exports = {
   },
   resolve: { extensions: ['*', '.js', '.jsx'] }, // Allows us to import modules without needing to add extensions
   output: { // Where to put the bundled code
-    publicPath: bundlePath, // What directory the bundle goes in
+    publicPath: path.resolve(__dirname, 'dist/'), // What directory the bundle goes in
     filename: 'bundle.js',
   },
   devServer: {
