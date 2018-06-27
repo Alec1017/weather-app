@@ -1,0 +1,14 @@
+# compiled output
+/dist
+
+# Dependency directories
+node_modules/
+
+# VSCode
+.vscode/*
+
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
