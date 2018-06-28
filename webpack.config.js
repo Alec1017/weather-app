@@ -19,6 +19,10 @@ module.exports = {
         test: /\.css$/, // Rule for processing CSS
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(jpg|svg|woff|woff2|ttf|eot)$/, // Rule for processing other file types
+        use: ['url-loader']
+      }
     ],
   },
   resolve: { extensions: ['*', '.js', '.jsx'] }, // Allows us to import modules without needing to add extensions
